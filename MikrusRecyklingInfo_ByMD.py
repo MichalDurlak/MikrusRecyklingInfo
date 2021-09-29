@@ -22,8 +22,8 @@ def send_email(user, pwd, recipient, body):
 
     # Prepare actual message
     message = """From: %s\nTo: %s\nSubject: %s\n\n%s
-    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
-
+  https://mikr.us/recykling.html """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
+    # print(message)
     try:
         server = smtplib.SMTP("smtp.gmail.com", 587)
         server.ehlo()
@@ -49,4 +49,8 @@ soup = BeautifulSoup(webpage, 'html.parser')
 if str(soup) == "Baza jest aktualnie pusta":
     pass
 else:
-    send_email(GMAIL_USERNAME,GMAIL_PASSWORD,DO_KOGO,webpage)
+    print("Dostepny będzie serwer na https://mikr.us/recykling.html")
+    # print(soup)
+    send_email(GMAIL_USERNAME,GMAIL_PASSWORD,DO_KOGO,soup)
+    # print(soup)
+    # send_email(GMAIL_USERNAME, GMAIL_PASSWORD, DO_KOGO, soup)
